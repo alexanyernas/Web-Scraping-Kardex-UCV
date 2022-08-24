@@ -8,6 +8,7 @@
 
 # https://github.com/py-pdf/PyPDF2
 import PyPDF2
+from bs4 import BeautifulSoup
 import re
 
 nameFile    = input('Type file name: ')
@@ -54,5 +55,15 @@ for i in range(len(academyInformationAux)):
                 else:
                     asignatures[codePeriod].append(academyInformationAux[i].strip())
 
-print(asignatures)
+#print(asignatures)
 pdfFileObj.close()
+
+with open('index.html', 'r') as f:
+
+    contents = f.read()
+
+    soup = BeautifulSoup(contents, 'lxml')
+
+    print(soup.h2)
+    print(soup.head)
+    print(soup.li)
