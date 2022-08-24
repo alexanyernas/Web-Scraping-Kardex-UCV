@@ -10,8 +10,6 @@
 import PyPDF2
 import re
 
-print(PyPDF2)
-
 nameFile    = input('Type file name: ')
 pdfFileObj  = open(f'{nameFile}.pdf', 'rb')
 pdfReader   = PyPDF2.PdfFileReader(pdfFileObj)
