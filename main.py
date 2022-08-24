@@ -8,11 +8,12 @@
 
 # https://github.com/py-pdf/PyPDF2
 import PyPDF2
-from bs4 import BeautifulSoup
+# https://code.launchpad.net/beautifulsoup/
+# from bs4 import BeautifulSoup
 import re
 
 nameFile    = input('Type file name: ')
-pdfFileObj  = open(f'{nameFile}.pdf', 'rb')
+pdfFileObj  = open(f'./kardex/{nameFile}.pdf', 'rb')
 pdfReader   = PyPDF2.PdfFileReader(pdfFileObj)
 pagesText   = ''
 
@@ -55,15 +56,5 @@ for i in range(len(academyInformationAux)):
                 else:
                     asignatures[codePeriod].append(academyInformationAux[i].strip())
 
-#print(asignatures)
+print(asignatures)
 pdfFileObj.close()
-
-with open('index.html', 'r') as f:
-
-    contents = f.read()
-
-    soup = BeautifulSoup(contents, 'lxml')
-
-    print(soup.h2)
-    print(soup.head)
-    print(soup.li)
