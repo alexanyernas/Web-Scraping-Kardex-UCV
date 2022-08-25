@@ -16,3 +16,19 @@ class Student:
         self.email       = email
         self.notes       = notes
         self.asignatures = asignatures
+    
+    def printPersonalInformation(self):
+        print('\n\t:: PERSONAL INFORMATION ::')
+        print(f'Degree:     {self.degree}')
+        print(f'Method:     {self.method}')
+        print(f'First Name: {self.firstName}')
+        print(f'Last Name:  {self.lastName}')
+        print(f'DNI:        {self.dni}')
+        print(f'Email:      {self.email}')
+    
+    def printAcademicSummary(self):
+        print('\n\t:: ACADEMIC SUMMARY ::')
+        print(f'Credits:          {self.notes["creditos"]}')
+        print(f'Approved Average: {self.notes["promedioAprobado"]}')
+        print(f'General Average:  {self.notes["promedioGeneral"]}')
+        print(f'Efficiency:       {self.notes["ponderadoEficiencia"]}')
