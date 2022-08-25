@@ -15,14 +15,15 @@ result   = getPdfData(nameFile)
 
 if result:
     personalInformation, asignatures                       = result
-    degree, method, firstName, lastName, dni, email, notes = personalInformation
+    degree, method, lastName, firstName, dni, email, notes = personalInformation
     notes = notes.split(' ')
     notesAux = {
         'creditos'           : notes[0],
-        'promedioAprobado'   : notes[1],
-        'promedioGeneral'    : notes[2],
+        'promedioGeneral'    : notes[1],
+        'promedioAprobado'   : notes[2],
         'ponderadoEficiencia': notes[3]
     }
-    student = Student(degree, method, firstName, lastName, dni, email, notesAux, asignatures)
+    student = Student(degree, method, lastName, firstName, dni, email, notesAux, asignatures)
     student.printPersonalInformation()
     student.printAcademicSummary()
+    # print(asignatures)

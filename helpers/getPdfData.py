@@ -42,6 +42,7 @@ def getPdfData (nameFile):
         codePeriod  = ''
 
         for i in range(len(academyInformationAux)):
+            asignatureAux = {}
             if academyInformationAux[i].strip() != '':
                 if re.search('^(([0-9]+|(-)) (([0-9]+)|([A-Z]+))-([0-9]+))', academyInformationAux[i]):
                     codePeriod               = academyInformationAux[i].split(' ')[1]
@@ -50,13 +51,22 @@ def getPdfData (nameFile):
 
                 if re.search('(^([0-9]+)|(^-) (([0-9]+)|([A-Z]+))-([0-9]+))|(^[0-9]+)', academyInformationAux[i]):
                     if i == len(academyInformationAux) - 1:
-                        asignatures[codePeriod].append(academyInformationAux[i].strip())
+                        actualAsignature = academyInformationAux[i].strip().split(' ')
                     elif i < len(academyInformationAux):
                         if not re.search('(^([0-9]+)|(^-) (([0-9]+)|([A-Z]+))-([0-9]+))|(^[0-9]+)', academyInformationAux[i+1]):
-                            asignatures[codePeriod].append(f'{academyInformationAux[i]} {academyInformationAux[i+1]}'.strip())
+                            actualAsignature = f'{academyInformationAux[i]} {academyInformationAux[i+1]}'.strip().split(' ')
                             i += 1
                         else:
-                            asignatures[codePeriod].append(academyInformationAux[i].strip())
+                            actualAsignature = academyInformationAux[i].strip().split(' ')
+
+                    asignatureAux['code']   = actualAsignature[0]
+                    if 'GRADO' in actualAsignature[-3]:
+                        asignatureAux['uc'] = actualAsignature[-3].split('GRADO')[1]
+                    else:    
+                        asignatureAux['uc'] = actualAsignature[-3]
+                    asignatureAux['note']   = actualAsignature[-2]
+                    asignatureAux['method'] = actualAsignature[-1]
+                    asignatures[codePeriod].append(asignatureAux)
 
         pdfFileObj.close()
         return personalInformation, asignatures
