@@ -12,9 +12,9 @@ try:
     import soupsieve
 except ImportError as e:
     soupsieve = None
-    #warnings.warn(
-    #    'The soupsieve package is not installed. CSS selectors cannot be used.'
-    #)
+    # warnings.warn(
+    # 'The soupsieve package is not installed. CSS selectors cannot be used.'
+    # )
 
 from bs4.formatter import (
     Formatter,

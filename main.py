@@ -9,7 +9,7 @@
 # https://github.com/py-pdf/PyPDF2
 import PyPDF2
 # https://code.launchpad.net/beautifulsoup/
-# from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 import re
 
 nameFile    = input('Type file name: ')
@@ -58,3 +58,21 @@ for i in range(len(academyInformationAux)):
 
 print(asignatures)
 pdfFileObj.close()
+
+contenido = """
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de prueba</title>
+</head>
+<body>
+<div id="main" class="full-width">
+    <h1>El título de la página</h1>
+    <p>Este es el primer párrafo</p>
+    ...
+</div>
+</body>
+</html>
+"""
+soup = BeautifulSoup(contenido, 'lxml')
+print(soup.title)
