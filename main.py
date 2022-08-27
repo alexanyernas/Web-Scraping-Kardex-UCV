@@ -16,7 +16,7 @@ result   = getPdfData(nameFile)
 if result:
     personalInformation, asignatures                       = result
     degree, method, lastName, firstName, dni, email, notes = personalInformation
-    notes = notes.split(' ')
+    notes    = notes.split(' ')
     notesAux = {
         'creditos'           : notes[0],
         'promedioGeneral'    : notes[1],
@@ -24,6 +24,8 @@ if result:
         'ponderadoEficiencia': notes[3]
     }
     student = Student(degree, method, lastName, firstName, dni, email, notesAux, asignatures)
-    student.printPersonalInformation()
-    student.printAcademicSummary()
-    # print(asignatures)
+    #student.printPersonalInformation()
+    #student.printAcademicSummary()
+    #print(asignatures)
+    if not student.isGaduate():
+        print(student.canBeGraduated())

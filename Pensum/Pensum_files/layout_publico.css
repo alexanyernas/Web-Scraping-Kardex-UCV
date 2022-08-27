@@ -1,0 +1,531 @@
+/*CUERPO*/
+
+body{
+
+    font-family: 'Roboto', 'sans-serif';
+
+    overflow-x: hidden;
+
+}
+
+/*TERMINA CUERPO*/
+
+
+
+/*ENCABEZADO*/
+
+#seccion_logo {
+
+    /*background-image: url(../img/layout_publico/encabezado/background_white.jpg);*/
+
+    padding-top: 10px;
+
+    padding-bottom: 10px;
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    background-attachment: fixed;
+
+    -webkit-background-size: cover;
+
+    -moz-background-size: cover;
+
+    -o-background-size: cover;
+
+}
+
+#contenedor_menu{
+
+	margin-bottom:0px;
+
+	padding-left:0px;
+
+	padding-right:0px;
+
+	border:0;
+
+}
+
+#menu {
+
+    border-radius: 0px;
+
+    margin-bottom: 0px;
+
+}
+
+.sinpadding{
+
+    padding: 0px;
+
+}
+
+#logo-escuela{
+
+    height: 90px;
+	margin-left:15px;
+    display: inline;
+
+}
+.logo_escuela{
+	text-align:left;
+}
+@media only screen and (max-width:991px){
+
+	.logo_escuela{
+		text-align:center;
+	}
+	#logo-escuela{
+		height: 90px;
+		margin-left:0px;
+	}
+
+}
+
+#logo-ciencias{
+
+    height: 90px;
+	margin-right:10px;
+    display: inline;
+
+}
+#logo-ucv{
+
+    height: 90px;
+
+    display: inline;
+
+}
+
+#boton_busqueda{
+	padding-top:3px;
+}
+#fondo_menu{
+	background-image: url(../img/layout_publico/encabezado/fondo_menu.jpg);
+}
+.color_letras{
+	color:white;
+}
+.margen_derecho{
+	margin-right:3px;
+}
+
+#fondo_menu>div>ul>li+li{
+
+  margin-left:0px;
+
+}
+
+#fondo_menu>div>ul>li>a{
+
+  border-radius:0px;
+
+}
+
+#fondo_menu>div>ul>li>a:hover{
+
+  border-radius:0px;
+	background-color:#FFF;
+
+}
+
+#fondo_menu>div>ul>li>a:focus{
+
+  background-color:#FFF;
+
+}
+
+#fondo_menu>div>ul .open>a, #fondo_menu>div>ul .open>a:hover, #fondo_menu>div>ul .open>a:focus {
+
+  background-color:#FFF;
+  color:#2a6496;
+
+}
+
+.nav-pills>li+li {
+	/*margin-left:0px;*/
+}
+.nav-pills>li>a {
+	/*border-radius:0px;*/
+}
+.nav-pills>li>a:hover {
+	/*border-radius:0px;*/
+	/*background-color:#FFF;*/
+}
+.nav-pills>li>a:focus {
+	/*background-color:#FFF;*/
+
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	/*background-color:#FFF;*/
+}
+
+input.gsc-input {
+	font-size: 13px;
+	padding: 4px 9px;
+	border: 1px solid #D9D9D9;
+	width: 99%;
+}
+/*TERMINA ENCABEZADO*/
+
+
+
+/*FOOTER*/
+
+#footer_superior {
+
+    background: #000;
+
+    padding-top: 30px;
+
+    padding-bottom: 30px;
+
+    border-bottom:  1px solid #1b1b1b;
+
+    text-align: center;
+
+	margin-top:0px;
+
+}
+
+@media only screen and (max-width:991px){
+
+    #contenedor_logo_footer{
+
+        margin-top: 20px;
+
+        margin-bottom: 5px;
+
+        padding: 0px 15px;
+
+    }
+
+}
+
+#direccion {
+
+    color: #d3d1d1;
+
+    line-height: 24px;
+
+}
+
+#lista_footer_uno{
+
+    list-style: none;
+
+    text-align: center;
+
+    padding: 0px;
+
+    border-right: 1px solid #4f4e4e;
+
+	margin-top:11px;
+
+}
+
+#lista_footer_dos{
+
+    list-style: none;
+
+    padding-left: 0px;
+
+    text-align: center;
+
+	margin-top:11px;
+
+    /*border-right: 1px solid #4f4e4e;*/
+
+}
+
+#lista_footer_tres{
+
+    list-style: none;
+
+    padding-left: 0px;
+
+    text-align: center;
+
+    border-left: 1px solid #4f4e4e;
+
+	margin-top:11px;
+
+}
+
+@media (min-width:992px) and (max-width:1199px){
+
+	#lista_footer_uno{
+
+		margin-top:22px;
+
+	}
+
+	#lista_footer_dos{
+
+		margin-top:22px;
+
+	}
+
+	#lista_footer_tres{
+
+		margin-top:22px;
+
+	}
+
+}
+
+@media (min-width:768px) and (max-width:991px){
+
+	#lista_footer_uno{
+
+		margin-top:10px;
+
+	}
+
+	#lista_footer_dos{
+
+		margin-top:10px;
+
+	}
+
+	#lista_footer_tres{
+
+		margin-top:10px;
+
+	}
+
+}
+
+@media (min-width:992px) and (max-width:1199px){
+
+	.imagen_pie{
+
+		margin-top:14px !important;
+
+	}
+
+}
+@media (min-width:768px) and (max-width:991px){
+
+	.imagen_pie{
+
+		margin-top:0px !important;
+
+	}
+
+}
+@media (max-width:767px){
+
+	.imagen_pie{
+
+		margin-top:-4px !important;
+
+	}
+
+}
+
+.direccion_big{
+
+	margin-top:10px;
+
+}
+
+.imagen_pie{
+
+	margin-top:7px;
+
+}
+
+#footer_inferior {
+
+    background-color: #333;
+
+    border-top: 1px solid #4f4e4e;
+
+}
+
+#derechos {
+
+    color: #a9a9a9;
+
+}
+
+.back-to-top {
+
+    cursor: pointer;
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right:10px;
+
+    display:none;
+
+    border-radius: 40px;
+
+	z-index:3000;
+
+}
+
+.contenedor_opciones_footer {
+
+    padding: 0px;
+
+	padding-top:15px;
+
+}
+
+.opcion_footer {
+
+    color: #d3d1d1;
+
+}
+
+#opciones_footer{
+
+	 color: #d3d1d1;
+
+}
+
+a.enlace-footer{
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+#logo_sm_centro{
+
+    margin-top: 0px;
+
+}
+
+.footer_inferior{
+
+	padding-top:3px;
+
+}
+
+.red_social{
+
+	height:45px;
+
+	width:45px;
+
+}
+
+.imagen_creditos{
+	max-height:184px;
+}
+
+@media (min-width:768px) and (max-width:991px){
+
+	.imagen_creditos{
+		max-height:126px;
+		width:100%;
+	}
+
+}
+
+@media only screen and (min-width:992px){
+
+	.imagen_creditos{
+		max-height:213px;
+		width:100%;
+	}
+
+}
+
+body.modal-open {
+    overflow: hidden;
+    position:fixed;
+    width: 100%;
+}
+/*TERMINA FOOTER*/
+
+
+
+#enlaces-rsociales{
+
+    margin-top: 10px;
+
+}
+
+#facebook, #twitter{
+
+	width:150px;
+
+}
+
+@media only screen and (max-width:767px){
+
+    #facebook, #twitter{
+
+		width:100px;
+
+	}
+
+}
+
+#facebookN, #twitterN{
+
+	width:70px;
+
+}
+
+/*PARA EL BUSCADOR DE GOOGLE*/
+
+
+.gsc-input{
+
+	line-height: normal;
+
+}
+
+#gs_tti50{
+
+	padding-top:2px;
+
+}
+.gsc-search-button-v2{
+
+	webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+
+}
+
+.gsc-selected-option-container{
+
+	webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+
+}
+
+.gsc-table-result{
+
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+
+}
+
+.gsc-thumbnail-inside{
+
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+
+}
+
+.gsc-url-top {
+
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+
+}
+
+/*TERMINA EL BUSCADOR DE GOOGLE*/

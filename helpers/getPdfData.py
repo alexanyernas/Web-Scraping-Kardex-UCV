@@ -61,9 +61,22 @@ def getPdfData (nameFile):
 
                     asignatureAux['code']   = actualAsignature[0]
                     if 'GRADO' in actualAsignature[-3]:
-                        asignatureAux['uc'] = actualAsignature[-3].split('GRADO')[1]
-                    else:    
-                        asignatureAux['uc'] = actualAsignature[-3]
+                        asignatureAux['type'] = 'TEG'
+                    elif 'OBLIGATORIA' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'OBLIGATORIA' 
+                    elif 'ELECTIVA' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'ELECTIVA'
+                    elif 'COMPLEMENTARIA' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'COMPLEMENTARIA'
+                    elif 'PASANTIA' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'PASANTIA'
+                    elif 'LABORATORIO' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'LABORATORIO'
+                    elif 'COMUNITARIO' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'SERVICIO COMUNITARIO'
+                    elif 'SEMINARIO' in actualAsignature[-4]:
+                        asignatureAux['type'] = 'SEMINARIO'
+                    asignatureAux['uc']     = actualAsignature[-3].split('GRADO')[1] if 'GRADO' in actualAsignature[-3] else actualAsignature[-3]
                     asignatureAux['note']   = actualAsignature[-2]
                     asignatureAux['method'] = actualAsignature[-1]
                     asignatures[codePeriod].append(asignatureAux)

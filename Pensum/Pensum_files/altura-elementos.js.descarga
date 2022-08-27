@@ -1,0 +1,10 @@
+$(function() {
+    $('.elemento').matchHeight();
+    $('.titulo-referencia').matchHeight();
+    $('.titulo-referencia-1').matchHeight();
+    $('.titulo-referencia-2').matchHeight();
+    $('.contenido_thumbnail').matchHeight();
+    $('.contenido').matchHeight();
+    $('.enlaces').matchHeight();
+    $('.noticia-thumbnail').matchHeight();
+});

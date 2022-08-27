@@ -32,3 +32,30 @@ class Student:
         print(f'General Average:  {self.notes["promedioGeneral"]}')
         print(f'Approved Average: {self.notes["promedioAprobado"]}')
         print(f'Efficiency:       {self.notes["ponderadoEficiencia"]}')
+
+    def isGaduate(self):
+        for key in list(self.asignatures.keys())[::-1]:
+            for asignature in self.asignatures[key]:
+                if asignature['type'] == 'TEG':
+                    if asignature['note'] == 'RET':
+                        continue
+                    if (asignature['note'] == 'A' or int(asignature['note']) > 10):
+                        return True 
+        return False
+
+    def canBeGraduated(self):
+        counterAsignatures       = 0
+        seminarApproved          = False
+        communityServiceApproved = False
+        for key in list(self.asignatures.keys()):
+            for asignature in self.asignatures[key]:
+                if asignature['type'] == 'OBLIGATORIA':
+                    if asignature['note'].isnumeric() and int(asignature['note']) > 10:
+                        counterAsignatures += 1
+                if asignature['type'] == 'SEMINARIO':
+                    if asignature['note'].isnumeric() and int(asignature['note']) > 10:
+                        seminarApproved = True
+                if asignature['type'] == 'SERVICIO COMUNITARIO':
+                    if asignature['note'] == 'A':
+                        communityServiceApproved = True
+        return counterAsignatures == 21 and seminarApproved and communityServiceApproved

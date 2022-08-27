@@ -1,0 +1,413 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* normalize defaults */
+html, head, body, 
+h1, h2, h3, h4, h5, h6, 
+div, span, p, blockquote, code, img, a,
+table, caption, tr, thead, th, tbody, td,
+ul, ol, li, label, form, fieldset {
+
+	line-height: 1.1em;
+	font: 100% Arial, Helvetica, sans-serif;	
+}
+
+body{
+	border-top: 20px  #2092b7 solid; /*change top border color here */
+	margin: 0 0 0 0;
+	color: #333;
+}
+	
+#page{
+	width:804px;
+	background-color:#FFF;	
+	text-align: left;
+	display: block;
+	margin: 30px auto 10px auto;
+}
+
+p{  
+	font-size: .8em;
+	color: #404040;
+	line-height: 1.2em;
+}
+
+#logo{ 
+	float: left;
+	padding: 12px 15px 0px 10px;
+
+}
+img {
+ 	border: 0px;
+}
+/*course name page title */
+#name p{	
+	float: left;
+	margin: 0;
+	padding: 45px 0 0 0;
+	color: #404040;
+	font-size: 2.0em;
+	font-weight: bold;
+}
+
+/* h1- for page name ie. syllabus, schedule, problem sets */
+h1{
+    font-size: 1em;
+	color: #404040;
+	font-weight: bold;
+	margin: 1em 0 3px 0;
+/*	text-transform:uppercase; */
+}
+
+/* h2 - red subheader for content of page*/
+h2{
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #6D121F;
+	margin-top: 1em;
+	line-height: 1.25em;
+	padding: 10px 0 0px 0px;
+}
+
+/*h3 - sub-subheader, grey, to be also used in footer */
+h3{
+	font-size: 0.80em;
+	font-weight: bold;
+	line-height: 0px;
+	color: #404040;
+}
+
+a{
+	font-size: 13px;
+	color: #075f78;
+	text-decoration: none;
+
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.regular{
+	font-size: .9em;
+	color: #404040;
+	font-weight: normal;
+}
+	
+/* HEADER NAVIGATION */
+#nav{ 
+	width: 804px;
+	margin: 15px 0 1px 0;
+	padding: 0;
+	list-style: none;
+}
+#nav li.home {
+	border: none;
+	list-style: none;
+}
+#nav li{
+	display: inline;
+	border-left: 1px #666 solid;
+}
+
+#nav a{
+/*	text-transform: capitalize; */
+	text-decoration: none;
+	font-size: 0.95em;
+	font-weight: bold;
+	color: #075f78;
+	padding: 0 12px;
+}
+
+#nav a:hover{
+	text-decoration:underline;
+}
+
+#nav li.sel a {
+	color: #6D121F;
+}
+
+#nav li.sel a:hover {
+	text-decoration: none;
+}
+
+#home .home a, #organization .organization a, #news .news a, #curriculum .curriculum a, #programs .programs a, #legislation .legislation a, #documents .documents a, #exams .exams a, #links .links a
+{
+text-decoration: none;
+color: #6D121F
+} 
+
+#pensum2004 .pensum2004 a, #pensum1985 .pensum1985 a, #pensum1974 .pensum1974 a, #pensum1968 .pensum1968 a
+{
+text-decoration: none;
+color: #6D121F
+} 
+
+
+/*Horizontal Rules*/
+hr{ 
+	height: 2px;
+	color: #666;
+	background-color:#666;
+	float: left;
+	border: none;
+	width:100%;
+}
+
+hr.dotted{
+	border-top-width: thin;
+	border-top-style: dotted;
+	border-top-color: #999999;
+	background-color: #FFF;
+	color: #000;
+	margin:  10px 0 0px 0;
+}
+
+
+/*CONTENT */
+#header{
+	width: 804px;
+}
+
+#detailsLeft{
+	width: 500px;
+	display: inline;
+	float: left;
+	height: 120px;
+	padding-left: 10px;
+	margin-top: 2px;
+}
+
+#detailsRight{
+	width: 250px;
+	display: inline;
+	float: left;
+	height: 120px;
+	padding-left: 10px;
+	margin-top: 2px;
+}
+
+.info{
+	float:left;
+	padding: 0px 10px 0px 10px;
+	width: 240px;
+}
+
+#desc{
+	width: 790px;
+	display: inline;
+	text-align: left;
+	float: left;
+	padding-left: 10px;
+}
+
+#sch{
+	width: 600px;
+	display: block;
+	text-align: left;
+	padding: 5px 0 0 10px;
+}
+
+#content{
+	width: 804px;
+	display: block;
+	text-align: left;
+	padding-left: 10px;
+	float: left;
+}
+
+#content a, #content ul, #content ol {
+	font-size: .9em;
+}
+
+/*TABLE*/
+/* data table styles */
+
+table.data {
+	clear: both;
+	width: 100%;
+	margin: 0 0 2em 0;
+}
+
+table.data caption,
+table td.mnavbkgnd {
+	background-color: #fff;
+	font-size: 0.8em;
+	font-weight: bold;
+	color: #6D121F;
+	text-align: left;
+	padding: 3px 4px;
+	margin: 1em 0 0 0;
+}
+
+table.data th,
+table.data td {
+	margin: 0;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 6px;
+}
+
+table.data th,
+table td.month1bkgnd {
+	background-color: #ecf6fb;
+	color: #333;
+	text-align: left;
+	font-weight: bold;
+	font-size: 12px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #CFCFCF;
+}
+
+table.data th.small {
+	width: 90px;
+}
+
+table.data tbody td {
+	font-size: 0.75em;
+}
+
+table.data td,
+td.month3 {
+
+	padding-bottom: 4px;
+	border-top: 1px solid #EEF1F2;
+}
+
+table.data tr.alt td,
+td.month2 {
+	background-color: #ECF6FB;
+	border-top: 2px solid #DEE3E5;
+}
+
+table.data tr.outdated td {
+	background-color: #FCEBEE;
+        border-top: 2px solid #DEE3E5;
+}
+
+table.data .full_name {font-weight: bold;}
+table.data tr.clean td {border-top: none;}
+table.data tr.altrow td {
+	background-color: #ECF6FB;
+}
+
+table.data tr.top td {
+	border-top: 2px solid #DEE3E5;
+}
+
+
+table.data tr.altrow td.hide {
+	color: #ECF6FB;
+}
+
+table.data tr td.hide {
+	color: #FFF;
+}
+
+table.data tr.desc td {
+	border-top: none;
+	background-image: url('images/bg-dotted.gif');
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+
+table.data td.email {
+	color: #075F78;
+}
+
+/*FOOTER*/
+#footer{
+	width: 800px;
+	display: inline;
+	float: left;
+}
+
+#footer .hr{
+	margin: 0 0 0px 0;
+}
+
+#footer hr.last{
+	margin: 0;
+	padding: 0;
+}
+
+#footer a{ font-size: 11px; color: #404040;}
+
+#footer a:hover{ color: #404040;}
+
+.mit{
+	float: left;
+	padding: 5px 20px 0 10px;
+}
+
+.left{
+	width: 300px;
+	padding-left: 10px;
+	float:left;
+	margin: .2em 0 0 0;
+}
+.right{
+	float: right;
+	padding: 0 10px 0 0;
+	color: #404040;
+	margin: 0 0 0 0;
+}
+.clear {
+	display: block;
+    height: 10px;
+    clear: both;
+}
+
+#hor-minimalist-b
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 15px;
+	width: 750px;
+	border-collapse: collapse;
+	text-align: left;
+}
+#hor-minimalist-b th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#hor-minimalist-b td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+}
+#hor-minimalist-b tbody tr:hover td
+{
+	color: #009;
+}
+
+#hor-zebra .odd
+{
+	background: #e8edff; 
+}
+
+Code:
+.classname {
+font-family: Tahoma, Geneva, sans-serif;
+}
+
+Code:
+
+.classname {
+font-family: ‘Century Gothic’, sans-serif;
+}
+
+Code:
+
+.classname {
+font-family: 'Palatino Copperplate / Copperplate Gothic Light, sans-serif;
+}
+
+
+
