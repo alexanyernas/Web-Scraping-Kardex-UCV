@@ -13,7 +13,15 @@ def processKardex(student):
         print(f'\nEl/La Lic. {student.getFullName()}, ha visto {student.getTotalTimeOnSemester()} horas a lo largo de la carrera.\n')
     else:
         if student.canBeGraduated():
-            print(f'\nEl estudiante {student.getFullName()} PUEDE graduarse.\n')
+            print(f'\n- El estudiante {student.getFullName()} PUEDE graduarse.')
         else:
-            print(f'\nEl estudiante {student.getFullName()}, NO PUEDE graduarse.\n')
-            student.testingSoup()
+            print(f'\n- El estudiante {student.getFullName()}, NO PUEDE graduarse.')
+            counterElectives, flagLab, flagCommunityService, flagInternship = student.getMissingAsignatures()
+            if counterElectives < 10:
+                print(f'- Falta por aprobar {10 - counterElectives} MATERIAS ELECTIVAS.')
+            if not flagLab:
+                print('- Laboratorio NO ha sido APROBADO.')
+            if not flagCommunityService:
+                print('- Servicio Comunitario NO ha sido APROBADO.')
+            if not flagInternship:
+                print('- Pasantías NO ha sido APROBADO.')

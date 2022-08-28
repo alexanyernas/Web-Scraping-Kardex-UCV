@@ -79,5 +79,36 @@ class Student:
                         counterTime += (int(asignature['uc']))
         return counterTime * 15
     
-    def testingSoup(self):
-        print(getAsignatures2004())
+    def getMissingAsignatures(self):
+        counterElectives     = 0
+        flagLab              = False
+        flagCommunityService = False
+        flagInternship       = False
+        # asignatures2004      = getAsignatures2004()
+        for key in list(self.asignatures.keys()):
+            for asignature in self.asignatures[key]:
+                if asignature['type'] == 'ELECTIVA':
+                    if asignature['note'].isnumeric():
+                        if int(asignature['note']) >= 10:
+                            counterElectives += 1
+                    else:
+                        if asignature['note'] == 'A':
+                            counterElectives += 1
+                
+                if asignature['type'] == 'PASANTIA':
+                    if asignature['note'].isnumeric():
+                        if int(asignature['note']) >= 10:
+                            flagInternship = True
+                    else:
+                        if asignature['note'] == 'A':
+                            flagInternship = True
+                
+                if asignature['type'] == 'SERVICIO COMUNITARIO':
+                    if asignature['note'] == 'A':
+                        flagCommunityService = True
+                
+                if asignature['type'] == 'LABORATORIO':
+                    if asignature['note'] == 'A':
+                        flagLab = True
+        
+        return counterElectives, flagLab, flagCommunityService, flagInternship
