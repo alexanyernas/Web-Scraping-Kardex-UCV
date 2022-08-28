@@ -16,6 +16,9 @@ class Student:
         self.email       = email
         self.notes       = notes
         self.asignatures = asignatures
+
+    def getFullName(self):
+        return f'{self.lastName} {self.firstName}'
     
     def printPersonalInformation(self):
         print('\n\t:: PERSONAL INFORMATION ::')
@@ -39,7 +42,7 @@ class Student:
                 if asignature['type'] == 'TEG':
                     if asignature['note'] == 'RET':
                         continue
-                    if (asignature['note'] == 'A' or int(asignature['note']) > 10):
+                    if (asignature['note'] == 'A' or int(asignature['note']) >= 10):
                         return True 
         return False
 
@@ -50,12 +53,26 @@ class Student:
         for key in list(self.asignatures.keys()):
             for asignature in self.asignatures[key]:
                 if asignature['type'] == 'OBLIGATORIA':
-                    if asignature['note'].isnumeric() and int(asignature['note']) > 10:
+                    if asignature['note'].isnumeric() and int(asignature['note']) >= 10:
+                        counterAsignatures += 1
+                    if asignature['note'] == 'EQ':
                         counterAsignatures += 1
                 if asignature['type'] == 'SEMINARIO':
-                    if asignature['note'].isnumeric() and int(asignature['note']) > 10:
+                    if asignature['note'].isnumeric() and int(asignature['note']) >= 10:
                         seminarApproved = True
                 if asignature['type'] == 'SERVICIO COMUNITARIO':
                     if asignature['note'] == 'A':
                         communityServiceApproved = True
         return counterAsignatures == 21 and seminarApproved and communityServiceApproved
+    
+    def getTotalTimeOnSemester(self):
+        counterTime = 0
+        for key in list(self.asignatures.keys()):
+            for asignature in self.asignatures[key]:
+                if asignature['note'].isnumeric():
+                    if int(asignature['note']) >= 10:
+                        counterTime += (int(asignature['uc']))
+                else:
+                    if asignature['note'] == 'A' or asignature['note'] == 'EQ': 
+                        counterTime += (int(asignature['uc']))
+        return counterTime * 15

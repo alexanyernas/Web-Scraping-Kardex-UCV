@@ -7,8 +7,9 @@
 #   Naranjo Alexanyer.      V - 26.498.600
 
 import sys
-from helpers.getPdfData import getPdfData
 from models.Student import Student
+from helpers.getPdfData import getPdfData
+from helpers.processKardex import processKardex
 
 nameFile = sys.argv[1]
 result   = getPdfData(nameFile)
@@ -24,8 +25,4 @@ if result:
         'ponderadoEficiencia': notes[3]
     }
     student = Student(degree, method, lastName, firstName, dni, email, notesAux, asignatures)
-    #student.printPersonalInformation()
-    #student.printAcademicSummary()
-    #print(asignatures)
-    if not student.isGaduate():
-        print(student.canBeGraduated())
+    processKardex(student)
