@@ -6,6 +6,8 @@
 #   Giannattasio Alejandra. V - 26.825.960
 #   Naranjo Alexanyer.      V - 26.498.600
 
+from helpers.getAsignatures2004 import getAsignatures2004
+
 class Student: 
     def __init__(self, degree, method, lastName, firstName, dni, email, notes, asignatures):
         self.degree      = degree
@@ -76,3 +78,6 @@ class Student:
                     if asignature['note'] == 'A' or asignature['note'] == 'EQ': 
                         counterTime += (int(asignature['uc']))
         return counterTime * 15
+    
+    def testingSoup(self):
+        print(getAsignatures2004())

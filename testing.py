@@ -1,5 +1,3 @@
-# import re
-import re
 from bs4 import BeautifulSoup
 
 def hasAttrBgColor(tag):
@@ -7,13 +5,28 @@ def hasAttrBgColor(tag):
 
 file = open("./Pensum/2004.html", encoding="utf8")
 scraper = BeautifulSoup(file, 'html.parser')
-result = scraper.find_all(hasAttrBgColor)
-result = result[1].find_all('td')
-urlAux = result[-1]
-print(result)
-print(urlAux.find('a'))
+
+result = scraper.find_all('tbody')[1]
+result = result.find_all(hasAttrBgColor)
+
+asignatures = {}
+
 for item in result:
-    print(item.get_text())
-# temp = result[0].replace('<td>', ' ')
-# temp = temp.replace('</td>', ' ')
-# print(temp)
+    auxResult = item.find_all('td') 
+    auxResult = auxResult[1:len(auxResult) - 5]
+
+    auxAsignature = []
+    for value in auxResult:
+        if '(*)' in value.get_text():
+            auxAsignature.append(value.get_text()[4:])
+        else:    
+            auxAsignature.append(value.get_text())
+
+    asignatures[auxAsignature[0]] = auxAsignature[1:]
+
+print(asignatures)
+
+file.close()
+    # if item.find('a'):
+    #     auxResult = item.find('a')
+    #     print(auxResult['href'])

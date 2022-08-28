@@ -16,3 +16,4 @@ def processKardex(student):
             print(f'\nEl estudiante {student.getFullName()} PUEDE graduarse.\n')
         else:
             print(f'\nEl estudiante {student.getFullName()}, NO PUEDE graduarse.\n')
+            student.testingSoup()
