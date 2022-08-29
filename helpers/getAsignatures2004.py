@@ -37,4 +37,8 @@ def getAsignatures2004():
 
     file.close()
 
+    aux = asignatures['6109']
+    del asignatures['6109']
+    asignatures['6105'] = aux
+    
     return asignatures

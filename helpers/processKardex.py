@@ -16,7 +16,15 @@ def processKardex(student):
             print(f'\n- El estudiante {student.getFullName()} PUEDE graduarse.')
         else:
             print(f'\n- El estudiante {student.getFullName()}, NO PUEDE graduarse.')
-            counterElectives, flagLab, flagCommunityService, flagInternship = student.getMissingAsignatures()
+            counterElectives, flagLab, flagCommunityService, flagInternship, missingAsignatures = student.getMissingAsignatures()
+            
+            if missingAsignatures:
+                print('\n\t :: LISTADO DE MATERIAS OBLIGATORIAS POR APROBAR ::')
+                for key in list(missingAsignatures.keys()):
+                    asignature = missingAsignatures[key]
+                    print(f'* Código: {key}')
+                    print(f'* Nombre: {asignature[0]}')
+                    print(f'* UC:     {asignature[2]}\n')
             if counterElectives < 10:
                 print(f'- Falta por aprobar {10 - counterElectives} MATERIAS ELECTIVAS.')
             if not flagLab:

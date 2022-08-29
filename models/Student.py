@@ -79,12 +79,32 @@ class Student:
                         counterTime += (int(asignature['uc']))
         return counterTime * 15
     
+    def getAprovedObligatoriesAsignatures(self):
+        def isObligatorieAproved(asignature):
+            if (asignature['type'] == 'OBLIGATORIA'):
+                if asignature['note'].isnumeric():
+                    if int(asignature['note']) >= 10:
+                        return True
+            return False
+        result = []
+        for key in list(self.asignatures.keys()):
+            for asignature in self.asignatures[key]:
+                if isObligatorieAproved(asignature):
+                    result.append(asignature)
+        return result
+
     def getMissingAsignatures(self):
         counterElectives     = 0
         flagLab              = False
         flagCommunityService = False
         flagInternship       = False
-        # asignatures2004      = getAsignatures2004()
+        asignatures2004      = getAsignatures2004()
+        aprovedAsignatures   = self.getAprovedObligatoriesAsignatures()
+
+        for asignature in aprovedAsignatures:
+            if asignature['code'] in asignatures2004.keys():
+                del asignatures2004[asignature['code']]
+
         for key in list(self.asignatures.keys()):
             for asignature in self.asignatures[key]:
                 if asignature['type'] == 'ELECTIVA':
@@ -111,4 +131,4 @@ class Student:
                     if asignature['note'] == 'A':
                         flagLab = True
         
-        return counterElectives, flagLab, flagCommunityService, flagInternship
+        return counterElectives, flagLab, flagCommunityService, flagInternship, asignatures2004
