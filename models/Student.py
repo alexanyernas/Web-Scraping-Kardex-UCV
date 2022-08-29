@@ -82,8 +82,21 @@ class Student:
     def getAprovedObligatoriesAsignatures(self):
         def isObligatorieAproved(asignature):
             if (asignature['type'] == 'OBLIGATORIA'):
+
+                if asignature['code'] == '6105' or asignature['code'] == '6109':
+                    if asignature['note'].isnumeric():
+                        if int(asignature['note']) >= 10:
+                            return True
+                    else:
+                        if asignature['note'] == 'EQ':
+                            return True
+                    return False
+
                 if asignature['note'].isnumeric():
                     if int(asignature['note']) >= 10:
+                        return True
+                else:
+                    if asignature['note'] == 'EQ':
                         return True
             return False
         result = []
@@ -102,6 +115,8 @@ class Student:
         aprovedAsignatures   = self.getAprovedObligatoriesAsignatures()
 
         for asignature in aprovedAsignatures:
+            if asignature['code'] == '6105':
+                del asignatures2004['6109']
             if asignature['code'] in asignatures2004.keys():
                 del asignatures2004[asignature['code']]
 
