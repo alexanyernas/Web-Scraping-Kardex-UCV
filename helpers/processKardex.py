@@ -11,7 +11,7 @@ def processKardex(student):
     student.printAcademicSummary()
     if student.isGaduate():
         student.getPdfAsignatures()
-        print(f'\n- El/La Lic. {student.getFullName()}, ha visto {student.getTotalTimeOnSemester()} horas a lo largo de la carrera.\n')
+        print(f'\n# El/La Lic. {student.getFullName()}, ha visto {student.getTotalTimeOnSemester()} horas a lo largo de la carrera.\n')
     else:
         if student.canBeGraduated():
             print(f'\n- El estudiante {student.getFullName()} PUEDE graduarse.')
