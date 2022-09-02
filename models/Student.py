@@ -6,6 +6,7 @@
 #   Giannattasio Alejandra. V - 26.825.960
 #   Naranjo Alexanyer.      V - 26.498.600
 
+from helpers.getDataPensum import getDataPensum
 from helpers.getAsignatures2004 import getAsignatures2004
 
 class Student: 
@@ -36,7 +37,7 @@ class Student:
         print(f'Credits:          {self.notes["creditos"]}')
         print(f'General Average:  {self.notes["promedioGeneral"]}')
         print(f'Approved Average: {self.notes["promedioAprobado"]}')
-        print(f'Efficiency:       {self.notes["ponderadoEficiencia"]}')
+        print(f'Efficiency:       {self.notes["ponderadoEficiencia"]}\n')
 
     def isGaduate(self):
         for key in list(self.asignatures.keys())[::-1]:
@@ -147,3 +148,63 @@ class Student:
                         flagLab = True
         
         return counterElectives, flagLab, flagCommunityService, flagInternship, asignatures2004
+    
+    def getPdfAsignatures(self):
+        print('\t:: PDF LIST ::')
+        for key in list(self.asignatures.keys()):
+            year = int(key.split('-')[1])
+            if year >= 2000:
+                year = 2000
+                pensum = getDataPensum('2000')
+            elif year >= 1985 and year <= 1999:
+                year = 1985
+                pensum = getDataPensum('1985')
+            elif year >= 1974 and year <= 1984:
+                year = 1974
+                pensum = getDataPensum('1974')
+            elif year >= 1968 and year <= 1973:
+                year = 1968
+                pensum = getDataPensum('1968')
+            
+            for asignature in self.asignatures[key]:
+                found = False
+                for item in pensum:
+                    if asignature['code'] == item['code']:
+                        
+                        if asignature['type'] == 'OBLIGATORIA':
+                            if asignature['note'].isnumeric():
+                                if int(asignature['note']) >= 10:
+                                    auxItem = item
+                            else:
+                                if asignature['note'] == 'EQ':
+                                    auxItem = item
+
+                        if asignature['type'] == 'ELECTIVA':
+                            if asignature['note'].isnumeric():
+                                if int(asignature['note']) >= 10:
+                                    auxItem = item
+                            else:
+                                if asignature['note'] == 'A':
+                                    auxItem = item
+                        
+                        if asignature['type'] == 'LABORATORIO':
+                            if asignature['note'] == 'A':
+                                auxItem = item
+                        
+                        print(f'* {auxItem["code"]}')
+                        print(f'* {auxItem["name"]}')
+                        print(f'* {auxItem["url"]}')
+                        print(f'* Año de PENSUM: {year}\n')
+                        found = True
+                        break
+                    
+                if asignature['note'].isnumeric():
+                    if int(asignature['note']) >= 10:
+                        if not found:
+                            print(f'- Materia {asignature["code"]}, NO SE ENCUENTRA en el sitio web de computación.\n')
+                elif asignature['note'] == 'A':
+                        if not found:
+                            print(f'- Materia {asignature["code"]}, NO SE ENCUENTRA en el sitio web de computación.\n')
+                elif asignature['note'] == 'EQ':
+                        if not found:
+                            print(f'- Materia {asignature["code"]}, NO SE ENCUENTRA en el sitio web de computación.\n')
