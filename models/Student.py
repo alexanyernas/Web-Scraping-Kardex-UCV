@@ -108,12 +108,14 @@ class Student:
         return result
 
     def getMissingAsignatures(self):
-        counterElectives     = 0
-        flagLab              = False
-        flagCommunityService = False
-        flagInternship       = False
-        asignatures2004      = getAsignatures2004()
-        aprovedAsignatures   = self.getAprovedObligatoriesAsignatures()
+        counterElectives            = 0
+        counterMandatoryElective    = 0
+        flagLab                     = False
+        flagCommunityService        = False
+        flagInternship              = False
+        asignatures2004             = getAsignatures2004()
+        aprovedAsignatures          = self.getAprovedObligatoriesAsignatures()
+        codesMandatoryElectives     = ['6012', '6211', '6221', '6311']
 
         for asignature in aprovedAsignatures:
             if asignature['code'] == '6105':
@@ -123,31 +125,39 @@ class Student:
 
         for key in list(self.asignatures.keys()):
             for asignature in self.asignatures[key]:
-                if asignature['type'] == 'ELECTIVA':
+                if asignature['code'] in codesMandatoryElectives:
                     if asignature['note'].isnumeric():
                         if int(asignature['note']) >= 10:
-                            counterElectives += 1
-                    else:
+                            counterMandatoryElective += 1
+                        else:
+                            if asignature['note'] == 'A':
+                                counterMandatoryElective += 1
+                else:
+                    if asignature['type'] == 'ELECTIVA':
+                        if asignature['note'].isnumeric():
+                            if int(asignature['note']) >= 10:
+                                counterElectives += 1
+                        else:
+                            if asignature['note'] == 'A':
+                                counterElectives += 1
+                    
+                    if asignature['type'] == 'PASANTIA':
+                        if asignature['note'].isnumeric():
+                            if int(asignature['note']) >= 10:
+                                flagInternship = True
+                        else:
+                            if asignature['note'] == 'A':
+                                flagInternship = True
+                    
+                    if asignature['type'] == 'SERVICIO COMUNITARIO':
                         if asignature['note'] == 'A':
-                            counterElectives += 1
-                
-                if asignature['type'] == 'PASANTIA':
-                    if asignature['note'].isnumeric():
-                        if int(asignature['note']) >= 10:
-                            flagInternship = True
-                    else:
+                            flagCommunityService = True
+                    
+                    if asignature['type'] == 'LABORATORIO':
                         if asignature['note'] == 'A':
-                            flagInternship = True
-                
-                if asignature['type'] == 'SERVICIO COMUNITARIO':
-                    if asignature['note'] == 'A':
-                        flagCommunityService = True
-                
-                if asignature['type'] == 'LABORATORIO':
-                    if asignature['note'] == 'A':
-                        flagLab = True
+                            flagLab = True
         
-        return counterElectives, flagLab, flagCommunityService, flagInternship, asignatures2004
+        return counterElectives, counterMandatoryElective, flagLab, flagCommunityService, flagInternship, asignatures2004
     
     def getPdfAsignatures(self):
         print('\t:: PDF LIST ::')
